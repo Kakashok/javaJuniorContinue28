@@ -1,8 +1,584 @@
-body{
-    background-color: #a6a6a6;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'comic', cursive;
 }
 
-h1{
-    font-family: cursive;
-    font-style: italic;
+body {
+    background: #eeeeee;
+    color: #000000;
+    display: flex;
+    justify-content: center;
+}
+
+#container {
+    width: 1200px;
+    margin-top: 10px;
+    position: relative;
+    min-height: 98vh;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+footer {
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+}
+
+h1 {
+    width: 750px;
+    height: 35px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: normal;
+    background: #ffffff;
+    border: 1.5px solid #000;
+}
+
+.form_log {
+    width: 250px;
+    border: 1.5px solid #959595;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.log_title {
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+    padding: 7px;
+    background: #cdcdcd;
+    border-bottom: 1.5px solid #959595;
+}
+
+.line {
+    width: 200px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.line div {
+    width: 60px;
+    text-align: right;
+}
+
+.line input {
+    width: 130px;
+    padding-left: 3px;
+    border: 1.5px solid #959595;
+    outline: 0;
+}
+
+.line select {
+    width: 130px;
+    height: 22px;
+    font-size: 12px;
+    border: 1.5px solid #000;
+    outline: 0;
+}
+
+.button_enter {
+    width: 60px;
+    height: 25px;
+    font-size: 12px;
+    background: #cdcdcd;
+    border: 1.5px solid #000;
+    margin: 0 0 25px 70px;
+    outline: 0;
+}
+
+.button_enter:active, .button_student1:active,
+.button_student2:active, .button_cm_student:active,
+.button_term:active, .button_discipline:active,
+.button_cm_discipline:active, .button_terms:active,
+.button_cm_term:active {
+    background: #ffffff;
+}
+
+.head {
+    margin-left: 225px;
+    display: flex;
+}
+
+.login {
+    width: 215px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.login div {
+    display: flex;
+}
+
+a {
+    font-family: 'micross', sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    color: #0000ff;
+}
+
+a:hover {
+    color: #d34343;
+}
+
+.menu_title {
+    width: 750px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu_title a {
+    font-size: 16px;
+}
+
+.content {
+    display: flex;
+    margin-right: 125px;
+}
+
+.side_menu {
+    width: 225px;
+    display: flex;
+}
+
+.side_menu a {
+    font-family: 'comic', cursive;
+    font-size: 12px;
+    margin-left: 25px;
+}
+
+.main {
+    width: 850px;
+    display: flex;
+    flex-direction: column;
+}
+
+.button_group1 {
+    width: 530px;
+    height: 70px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+.button_student1 {
+    width: 300px;
+    height: 25px;
+    font-size: 12px;
+    background: #cdcdcd;
+    border: 1.5px solid #000;
+    outline: 0;
+}
+
+.button_student2 {
+    width: 200px;
+    height: 25px;
+    font-size: 12px;
+    background: #cdcdcd;
+    border: 1.5px solid #000;
+    outline: 0;
+}
+
+.students {
+    width: 750px;
+}
+
+.list {
+    width: 100%;
+    font-size: 12px;
+    text-align: left;
+    border: 1.5px solid #959595;
+    border-collapse: collapse;
+}
+
+caption {
+    font-size: 16px;
+    font-weight: normal;
+    text-align: left;
+    padding-left: 2px;
+    margin-bottom: 7px;
+}
+
+.list th {
+    background: #cdcdcd;
+}
+
+.l_col0, .l_col1, .l_col2, .l_col3, .l_col4 {
+    height: 70px;
+    background: #eeeeee;
+    padding-left: 5px;
+    border: 1.5px solid #959595;
+}
+
+.l_col0 label, .ld_col0 label {
+    padding-right: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.l_col1, .l_col2 {
+    width: 30%;
+}
+
+.l_col3, .l_col4 {
+    width: 15%;
+}
+
+h2 {
+    font-size: 16px;
+    font-weight: normal;
+    padding-left: 2px;
+    margin-bottom: 20px;
+}
+
+.form_cm {
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.line2 {
+    width: 285px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.line2 div {
+    width: 110px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.line2 input {
+    width: 170px;
+    padding-left: 3px;
+    border: 1.5px solid #000;
+    outline: 0;
+}
+
+.button_cm_student {
+    width: 110px;
+    height: 25px;
+    font-size: 12px;
+    background: #cdcdcd;
+    border: 1.5px solid #000;
+    margin: 25px 0 0 115px;
+    outline: 0;
+}
+
+.progress {
+    width: 750px;
+}
+
+.lp_col0, .lp_col1, .lp_col2, .lp_col3 {
+    height: 25px;
+    width: 25%;
+    background: #eeeeee;
+    padding-left: 5px;
+    border: 1.5px solid #959595;
+}
+
+.progress_section {
+    width: 750px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+}
+
+.marks {
+    width: 310px;
+}
+
+.lm_col0, .lm_col1 {
+    height: 100px;
+    background: #eeeeee;
+    padding-left: 5px;
+    border: 1.5px solid #959595;
+}
+
+.lm_col0 {
+    width: 75%;
+}
+
+.lm_col1 {
+    width: 25%;
+}
+
+.term_average_mark {
+    width: 440px;
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.term {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+select {
+    width: 160px;
+    height: 25px;
+    font-size: 12px;
+    border: 1.5px solid #000;
+    outline: 0;
+}
+
+.button_term {
+    width: 90px;
+    height: 25px;
+    font-size: 12px;
+    background: #cdcdcd;
+    border: 1.5px solid #000;
+    outline: 0;
+}
+
+.average_mark {
+    display: flex;
+    flex-direction: row;
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.discipline_title {
+    margin-top: 10px;
+    padding-left: 15px;
+}
+
+.discipline_section {
+    width: 750px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.discipline {
+    width: 360px;
+}
+
+.ld_col0, .ld_col1 {
+    height: 100px;
+    background: #eeeeee;
+    padding-left: 5px;
+    border: 1.5px solid #959595;
+}
+
+.ld_col0 {
+    width: 10%;
+}
+
+.ld_col1 {
+    width: 90%;
+}
+
+.root_discipline {
+    width: 360px;
+}
+
+.button_group2 {
+    height: 110px;
+    margin-left: 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.button_discipline {
+    width: 270px;
+    height: 25px;
+    font-size: 12px;
+    background: #cdcdcd;
+    border: 1.5px solid #000;
+    outline: 0;
+}
+
+.line3 {
+    width: 270px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.line3 div {
+    display: flex;
+    align-items: flex-end;
+}
+
+.line3 input {
+    width: 200px;
+    padding-left: 3px;
+    border: 1.5px solid #000;
+    outline: 0;
+}
+
+.button_cm_discipline {
+    width: 90px;
+    height: 25px;
+    font-size: 12px;
+    background: #cdcdcd;
+    border: 1.5px solid #000;
+    margin: 20px 0 0 70px;
+    outline: 0;
+}
+
+.terms_section1 {
+    width: 750px;
+    display: flex;
+    flex-direction: column;
+}
+
+.terms_title {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.line4 {
+    width: 445px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.line4 div {
+    display: flex;
+    align-items: flex-end;
+}
+
+.line4 form{
+    width: 285px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.line4 select {
+    width: 190px;
+}
+
+.term_duration {
+    width: 280px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.list_dt {
+    font-size: 16px;
+    font-weight: normal;
+    padding-left: 2px;
+    margin-bottom: 10px;
+}
+
+.terms_section2 {
+    width: 750px;
+    display: flex;
+    flex-direction: row;
+}
+
+.terms {
+    width: 350px;
+}
+
+.lt_col0 {
+    height: 100px;
+    background: #eeeeee;
+    padding-left: 5px;
+    border: 1.5px solid #959595;
+}
+
+.root_terms {
+    width: 400px;
+}
+
+.button_group3 {
+    height: 140px;
+    margin-left: 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.button_terms {
+    width: 230px;
+    height: 25px;
+    font-size: 12px;
+    background: #cdcdcd;
+    border: 1.5px solid #000;
+    outline: 0;
+}
+
+.line5 {
+    width: 350px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.line5 div {
+    padding-top: 4px;
+}
+
+.line5 input {
+    width: 190px;
+    padding-left: 3px;
+    border: 1.5px solid #000;
+    outline: 0;
+}
+
+.line5 select {
+    width: 190px;
+    height: 140px;
+    padding-left: 3px;
+    border-radius: 0;
+}
+
+.button_cm_term {
+    width: 90px;
+    height: 25px;
+    font-size: 12px;
+    background: #cdcdcd;
+    border: 1.5px solid #000;
+    margin: 25px 0 0 160px;
+    outline: 0;
+}
+
+h4 {
+    font-family: 'ariali', cursive;
+    font-size: 16px;
+    margin-top: 30px;
+    color: #ff0000;
 }

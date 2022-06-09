@@ -1,5 +1,8 @@
 package controllers;
 
+import db.DBManager;
+import entity.Student;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +13,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 @WebServlet(name = "StudentsController", urlPatterns = "/students")
 public class StudentsController extends HttpServlet {
@@ -17,24 +21,9 @@ public class StudentsController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/students_28_29?user=root&password=QWERTY1234");
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM student");
+        ArrayList<Student> students = DBManager.getAllActiveStudent();
 
-            while (rs.next()){
-                System.out.println(rs.getInt("id"));
-                System.out.println(rs.getString("surname"));
-                System.out.println(rs.getString("name"));
-
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
+        req.setAttribute("students", students);
         req.getRequestDispatcher("/WEB-INF/jsp/students.jsp").forward(req, resp);
     }
 }
