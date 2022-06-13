@@ -1,5 +1,6 @@
 package db;
 
+import constants.Constants;
 import entity.Group;
 import entity.Student;
 
@@ -15,7 +16,7 @@ public class DBManager {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/students_28_29?user=root&password=QWERTY1234");
+            Connection conn = DriverManager.getConnection(Constants.CONNECTION_URL);
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT s.id, s.surname, s.name, s.id_group, g.group, s.date FROM student as s\n" +
                     "left join groupe as g on s.id_group = g.id\n" +
@@ -57,7 +58,7 @@ public class DBManager {
          */
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/students_28_29?user=root&password=QWERTY1234");
+            Connection conn = DriverManager.getConnection(Constants.CONNECTION_URL);
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM groupe as g where g.group = \""+group+"\"");
 
@@ -87,7 +88,7 @@ public class DBManager {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/students_28_29?user=root&password=QWERTY1234");
+            Connection conn = DriverManager.getConnection(Constants.CONNECTION_URL);
             Statement stmt = conn.createStatement();
             stmt.execute("INSERT INTO `student` (`surname`, `name`, `id_group`, `date`) VALUES ('"+surname+"', '"+name+"', '"+idGroup+"', '"+date+"');");
 
@@ -104,7 +105,7 @@ public class DBManager {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/students_28_29?user=root&password=QWERTY1234");
+            Connection conn = DriverManager.getConnection(Constants.CONNECTION_URL);
             Statement stmt = conn.createStatement();
             stmt.execute("UPDATE `student` SET `surname` = '"+surname+"', `name` = '"+name+"', `date` = '"+date+"' WHERE (`id` = '"+id+"');\n");
 
@@ -121,7 +122,7 @@ public class DBManager {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/students_28_29?user=root&password=QWERTY1234");
+            Connection conn = DriverManager.getConnection(Constants.CONNECTION_URL);
             Statement stmt = conn.createStatement();
             stmt.execute("UPDATE `student` SET `status` = '0' WHERE (`id` = '"+id+"');");
 
@@ -138,7 +139,7 @@ public class DBManager {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/students_28_29?user=root&password=QWERTY1234");
+            Connection conn = DriverManager.getConnection(Constants.CONNECTION_URL);
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT s.id, s.surname, s.name, s.id_group, g.group, s.date FROM student as s\n" +
                     "left join groupe as g on s.id_group = g.id\n" +
