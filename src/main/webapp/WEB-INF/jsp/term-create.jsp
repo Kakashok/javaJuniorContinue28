@@ -1,31 +1,24 @@
 <%--
   Created by IntelliJ IDEA.
   User: Victor
-  Date: 04.06.2022
-  Time: 13:50
+  Date: 18.06.2022
+  Time: 14:35
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Students List</title>
+    <title>Term Creating</title>
     <link rel="stylesheet" href="../../resourses/fonts/fonts.css">
     <link rel="stylesheet" type="text/css" href="../../resourses/css/style.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-    <script>
-        $( function() {
-            $( "#datepicker" ).datepicker();
-        } );
-    </script>
-
 </head>
 <body>
 <div id="container">
@@ -44,44 +37,40 @@
                     <c:otherwise>
                         <div><a href="/login">Login</a></div>
                     </c:otherwise>
-                </c:choose>            </div>
+                </c:choose>
+
+
+            </div>
         </nav>
     </header>
     <main>
         <section class="content">
             <div class="side_menu">
-                <div><a href="/home">На главную</a></div>
-                <div><a href="/students">Назад</a></div>
+                <div><a href="/">На главную</a></div>
+                <div><a href="/terms">Назад</a></div>
             </div>
             <div class="main">
-                <h2>Для создания студента заполните все поля и нажмите кнопку "Создать".</h2>
+                <h2>Для создания семестра заполните следующие данные и нажмите кнопку "Создать".</h2>
                 <div class="form_cm">
-                    <form action="/student-create" method="post">
-                        <div class="line2">
-                            <div>Фамилия</div>
+                    <form action="/term-create" method="post">
+                        <div class="line5">
+                            <div>Длительность (в неделях)</div>
                             <label>
-                                <input type="text" name="surname">
+                                <input name="duration" type="text" value="24 недели">
                             </label>
                         </div>
-                        <div class="line2">
-                            <div>Имя</div>
+                        <div class="line5">
+                            <div>Дисциплины в семестре</div>
                             <label>
-                                <input type="text" name="name">
+                                <select multiple="multiple" name="idsDisc">
+                                    <c:forEach items="${disciplines}" var = "d">
+                                        <option value="${d.id}">${d.discipline}</option>
+                                    </c:forEach>
+
+                                </select>
                             </label>
                         </div>
-                        <div class="line2">
-                            <div>Группа</div>
-                            <label>
-                                <input type="text" name="group">
-                            </label>
-                        </div>
-                        <div class="line2">
-                            <div>Дата поступления</div>
-                            <label>
-                                <input type="text" name="date" id="datepicker">
-                            </label>
-                        </div>
-                        <input class="button_cm_student" type="submit" value="Создать">
+                        <input class="button_cm_term" type="submit" value="Создать">
                     </form>
                 </div>
                 <c:if test="${error eq 1}">
@@ -90,7 +79,9 @@
             </div>
         </section>
     </main>
+    <footer>
+        <div>&copy; 2022 Victor Pomadchin</div>
+    </footer>
 </div>
 </body>
-
 </html>

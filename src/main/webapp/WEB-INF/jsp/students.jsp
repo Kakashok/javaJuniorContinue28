@@ -16,7 +16,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Students List</title>
-    <link rel="stylesheet" href="../../resourses/css/style.css">
+    <link rel="stylesheet" href="../../resourses/fonts/fonts.css">
     <link rel="stylesheet" type="text/css" href="../../resourses/css/style.css">
     <script src="../../resourses/js/functions.js"></script>
 
@@ -29,9 +29,16 @@
             <div class="login">
 
 
-                <div><p>Привет, admin!</p></div>
-                <div><a href="/">Logout</a></div>
-            </div>
+                <c:choose>
+                    <c:when test="${isLogin eq true}">
+                        <div><p>Привет, admin!</p></div>
+                        <div><a href="/logout">Logout</a></div>
+                    </c:when>
+
+                    <c:otherwise>
+                        <div><a href="/login">Login</a></div>
+                    </c:otherwise>
+                </c:choose>            </div>
         </nav>
     </header>
     <main>
@@ -43,7 +50,7 @@
                 <div class="button_group1">
 
                     <input class="button_student1" type="submit"
-                           value="Просмотреть успеваемость выбранных студентов" onclick="">
+                           value="Просмотреть успеваемость выбранных студентов" onclick="progressStudent()">
                     <form action = "/student-create" method="get">
                         <input class="button_student2" type="submit" value="Создать студента…">
 
@@ -96,6 +103,9 @@
 </form>
 <form action = "/student-modify" method="get" id="modifyForm">
     <input type = "hidden" name="idsHiddenModify" id = "idsHiddenModify">
+</form>
+<form action = "/student-progress" method="get" id="progressForm">
+    <input type = "hidden" name="idHiddenProgress" id = "idHiddenProgress">
 </form>
 
 </html>

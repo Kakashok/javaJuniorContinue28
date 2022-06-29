@@ -15,7 +15,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Students List</title>
-    <link rel="stylesheet" href="../../resourses/css/style.css">
+    <link rel="stylesheet" href="../../resourses/fonts/fonts.css">
     <link rel="stylesheet" type="text/css" href="../../resourses/css/style.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -35,9 +35,16 @@
             <div class="login">
 
 
-                <div><p>Привет, admin!</p></div>
-                <div><a href="/">Logout</a></div>
-            </div>
+                <c:choose>
+                    <c:when test="${isLogin eq true}">
+                        <div><p>Привет, admin!</p></div>
+                        <div><a href="/logout">Logout</a></div>
+                    </c:when>
+
+                    <c:otherwise>
+                        <div><a href="/login">Login</a></div>
+                    </c:otherwise>
+                </c:choose>            </div>
         </nav>
     </header>
     <main>
